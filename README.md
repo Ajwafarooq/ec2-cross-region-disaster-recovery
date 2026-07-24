@@ -2,11 +2,17 @@
 
 <p align="center">
 
-![AWS](https://img.shields.io/badge/AWS-EC2-orange?style=for-the-badge&logo=amazonaws)
-![Windows Server](https://img.shields.io/badge/Windows-Server-blue?style=for-the-badge&logo=windows)
-![IIS](https://img.shields.io/badge/Microsoft-IIS-green?style=for-the-badge)
-![Disaster Recovery](https://img.shields.io/badge/Disaster-Recovery-red?style=for-the-badge)
-![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black?style=for-the-badge&logo=github)
+<img src="https://img.shields.io/badge/AWS-EC2-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white">
+<img src="https://img.shields.io/badge/Windows-Server-0078D6?style=for-the-badge&logo=windows&logoColor=white">
+<img src="https://img.shields.io/badge/Microsoft-IIS-0078D7?style=for-the-badge">
+<img src="https://img.shields.io/badge/Disaster-Recovery-red?style=for-the-badge">
+<img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge">
+
+</p>
+
+<p align="center">
+
+A real-world AWS Cloud project demonstrating <b>Cross-Region AMI Migration</b>, <b>Disaster Recovery</b>, and <b>Windows Server IIS Website Hosting</b> using Amazon EC2.
 
 </p>
 
@@ -14,278 +20,408 @@
 
 # 📑 Table of Contents
 
-- Project Overview
-- Architecture Diagram
-- Project Objectives
-- AWS Services Used
-- Technologies Used
-- Solution Workflow
-- Project Structure
-- Project Screenshots
-- Key Features
-- Learning Outcomes
-- Future Improvements
-- Author
-- License
+- 📌 Project Overview
+- 🎯 Project Objectives
+- 🏗 Solution Architecture
+- ☁ AWS Services Used
+- 💻 Technologies Used
+- 🚀 Project Implementation
+- 📸 Project Screenshots
+- ✨ Key Features
+- 📚 Learning Outcomes
+- 🚀 Future Enhancements
+- 👩‍💻 Author
+- 📄 License
 
 ---
 
 # 📌 Project Overview
 
-This project demonstrates a real-world **AWS Disaster Recovery (DR)** solution using **Amazon EC2** and **Amazon Machine Images (AMI)**.
+This project demonstrates a practical implementation of **AWS Disaster Recovery (DR)** using **Amazon EC2**, **Amazon Machine Images (AMI)**, and **Microsoft Internet Information Services (IIS)**.
 
-A Windows Server EC2 instance hosting the **CloudSphere Solutions** website with **Microsoft IIS** was deployed in the **Mumbai Region (ap-south-1)**. A custom AMI was created from the running instance, copied to the **Singapore Region (ap-southeast-1)**, and used to launch a new Windows Server EC2 instance.
+A Windows Server EC2 instance hosting a business website was deployed in the **Mumbai Region (ap-south-1)**. After successfully configuring IIS and hosting the website, a custom **Amazon Machine Image (AMI)** was created.
 
-The migrated server successfully restored the website, demonstrating a practical **Cross-Region Disaster Recovery** strategy on AWS.
+The AMI was copied to the **Singapore Region (ap-southeast-1)** and used to launch a brand-new Windows Server EC2 instance.
 
----
+Finally, the migrated server was verified by connecting through **Remote Desktop Protocol (RDP)** and confirming that the hosted website was fully operational.
 
-# 🏗 Architecture Diagram
-
-<p align="center">
-
-![Architecture Diagram](diagrams/Architecture-diagram.png)
-
-</p>
+This project demonstrates how organizations can use AWS to create reliable backups and rapidly recover workloads in another AWS Region during infrastructure failures or disaster scenarios.
 
 ---
 
 # 🎯 Project Objectives
 
-- Deploy a Windows Server EC2 instance
-- Host a website using Microsoft IIS
-- Create a custom Amazon Machine Image (AMI)
-- Copy the AMI to another AWS Region
-- Launch a new EC2 instance from the copied AMI
-- Verify website functionality after migration
-- Demonstrate AWS Disaster Recovery implementation
+- Deploy a Windows Server EC2 instance.
+- Configure Microsoft IIS Web Server.
+- Host a business website on AWS.
+- Create a custom Amazon Machine Image (AMI).
+- Copy the AMI to another AWS Region.
+- Launch a new EC2 instance from the copied AMI.
+- Verify successful website restoration.
+- Demonstrate Cross-Region Disaster Recovery.
+
+---
+
+# 🏗 Solution Architecture
+
+<p align="center">
+
+<img src="Architecture-diagram.png" width="100%">
+
+</p>
 
 ---
 
 # ☁ AWS Services Used
 
-| AWS Service | Purpose |
-|-------------|---------|
+| AWS Service | Description |
+|-------------|-------------|
 | Amazon EC2 | Virtual Windows Server |
-| Amazon Machine Image (AMI) | Server Backup |
-| Cross-Region AMI Copy | Disaster Recovery |
-| Amazon EBS | Storage Volume |
-| Security Groups | Firewall Rules |
+| Amazon Machine Image (AMI) | Backup of the EC2 Instance |
+| Amazon EBS | Persistent Storage |
+| Security Groups | Firewall Configuration |
 | Microsoft IIS | Website Hosting |
-| Remote Desktop (RDP) | Remote Access |
+| Remote Desktop Protocol (RDP) | Remote Administration |
 
 ---
 
 # 💻 Technologies Used
 
 - Amazon Web Services (AWS)
-- Windows Server
+- Windows Server 2022
 - Microsoft IIS
 - Amazon EC2
 - Amazon Machine Images (AMI)
-- Remote Desktop Protocol (RDP)
+- Remote Desktop (RDP)
+- HTML5
+- CSS3
+- JavaScript
 - Git
 - GitHub
 
+---# 🚀 Project Implementation
+
+This project was completed using the following implementation process:
+
+### Phase 1 – Deploy Windows Server
+
+- Launched a Windows Server EC2 instance in the **Mumbai Region (ap-south-1)**.
+- Configured inbound Security Group rules for:
+  - HTTP (80)
+  - HTTPS (443)
+  - RDP (3389)
+- Connected to the instance using **Remote Desktop Protocol (RDP)**.
+
 ---
 
-# 🔄 Solution Workflow
+### Phase 2 – Configure IIS
+
+- Installed **Microsoft Internet Information Services (IIS)**.
+- Copied the CloudSphere Solutions website files into:
 
 ```text
-                      User
-                        │
-                        ▼
-      AWS Mumbai Region (Primary)
-      Windows Server EC2 + IIS
-                        │
-                 Host Website
-                        │
-                Create Custom AMI
-                        │
-              Cross-Region AMI Copy
-                        │
-                        ▼
-   AWS Singapore Region (Disaster Recovery)
-                        │
-             Launch New EC2 Instance
-                        │
-              Connect using RDP
-                        │
-              Verify Website Access
-                        │
-                        ▼
-        Disaster Recovery Successful ✅
+C:\inetpub\wwwroot
 ```
+
+- Started the Default Website from IIS Manager.
+- Verified successful hosting using the EC2 Public IP.
 
 ---
 
-# 📂 Project Structure
+### Phase 3 – Create Custom AMI
+
+- Created a custom **Amazon Machine Image (AMI)** from the running Windows Server.
+- Waited until the AMI status changed from **Pending** to **Available**.
+
+---
+
+### Phase 4 – Cross-Region Migration
+
+- Copied the AMI from:
 
 ```text
-aws-ec2-cross-region-ami-migration/
-│
-├── README.md
-├── LICENSE
-│
-├── diagrams/
-│   └── Architecture-diagram.png
-│
-└── screenshots/
-    ├── 01-original-instance.png
-    ├── 02-create-ami.png
-    ├── 03-ami-copy-successful.png
-    ├── 04-destination-ami.png
-    ├── 05-launch-instance.png
-    ├── 06-new-instance-running.png
-    ├── 07-password.png
-    ├── 08-rdp-connection.png
-    ├── 09-localhost-test.png
-    ├── 10-success-message.png
-    └── 11-website-running.png
+Mumbai (ap-south-1)
+        │
+        ▼
+Singapore (ap-southeast-1)
 ```
 
----
-
-# 📷 Project Screenshots
-
-## 1️⃣ Original Windows Server
-
-![Original Instance](screenshots/01-original-instance.png)
+- Waited until the copied AMI became **Available** in the destination region.
 
 ---
 
-## 2️⃣ Create AMI
+### Phase 5 – Launch Disaster Recovery Server
 
-![Create AMI](screenshots/02-create-ami.png)
-
----
-
-## 3️⃣ AMI Copy Successful
-
-![AMI Copy](screenshots/03-ami-copy-successful.png)
+- Launched a new Windows Server EC2 instance using the copied AMI.
+- Used the existing Key Pair.
+- Configured Security Groups.
+- Retrieved the Windows Administrator Password.
+- Connected through Remote Desktop.
 
 ---
 
-## 4️⃣ Destination AMI (Singapore Region)
+### Phase 6 – Website Verification
 
-![Destination AMI](screenshots/04-destination-ami.png)
+- Verified IIS was running correctly.
+- Opened:
 
----
+```text
+http://localhost
+```
 
-## 5️⃣ Launch New EC2 Instance
-
-![Launch Instance](screenshots/05-launch-instance.png)
-
----
-
-## 6️⃣ New EC2 Instance Running
-
-![Running Instance](screenshots/06-new-instance-running.png)
+- Verified website accessibility using the new EC2 Public IP.
+- Confirmed successful Disaster Recovery deployment.
 
 ---
 
-## 7️⃣ Retrieve Administrator Password
+# 🔄 Disaster Recovery Workflow
 
-![Password](screenshots/07-password.png)
+<p align="center">
 
----
+<img src="Architecture-diagram.png" width="100%">
 
-## 8️⃣ Remote Desktop Connection
-
-![RDP](screenshots/08-rdp-connection.png)
+</p>
 
 ---
 
-## 9️⃣ Localhost Website Verification
+# 📸 Project Screenshots
 
-![Localhost](screenshots/09-localhost-test.png)
+## 🖥 Original Windows Server EC2
 
----
-
-## 🔟 Successful Deployment
-
-![Success](screenshots/10-success-message.png)
+<p align="center">
+<img src="screenshot/original-instance.png" width="95%">
+</p>
 
 ---
 
-## 1️⃣1️⃣ Website Running on Disaster Recovery Server
+## 💾 Custom AMI Created Successfully
 
-![Website Running](screenshots/11-website-running.png)
+<p align="center">
+<img src="screenshot/amicopy-successful.png" width="95%">
+</p>
+
+---
+
+## 🌏 Copied AMI in Singapore Region
+
+<p align="center">
+<img src="screenshot/destination-ami.png" width="95%">
+</p>
+
+---
+
+## 🚀 Launch New EC2 Instance
+
+<p align="center">
+<img src="screenshot/lauchinstance.png" width="95%">
+</p>
+
+---
+
+## ⚙ Configure New EC2 Instance
+
+<p align="center">
+<img src="screenshot/instancecreate.png" width="95%">
+</p>
+
+---
+## 🔑 Retrieve Windows Administrator Password
+
+<p align="center">
+<img src="screenshot/password.png" width="95%">
+</p>
+
+The Administrator password was decrypted using the EC2 key pair and used to establish a secure Remote Desktop connection to the new Windows Server instance.
+
+---
+
+## 🖥 Remote Desktop Connection (RDP)
+
+<p align="center">
+<img src="screenshot/remote-desktopconnection.png" width="95%">
+</p>
+
+Successfully connected to the migrated EC2 instance using **Remote Desktop Protocol (RDP)** and verified the Windows Server environment.
+
+---
+
+## 🌐 Verify Website on Localhost
+
+<p align="center">
+<img src="screenshot/search-localhost.png" width="95%">
+</p>
+
+After connecting through RDP, the hosted website was verified locally using:
+
+```text
+http://localhost
+```
+
+This confirmed that Microsoft IIS was serving the application correctly.
+
+---
+
+## ✅ Successful Deployment
+
+<p align="center">
+<img src="screenshot/success_msg.png" width="95%">
+</p>
+
+The migration process completed successfully without requiring manual website reconfiguration.
+
+---
+
+## 🎉 Website Running on Disaster Recovery Server
+
+<p align="center">
+<img src="screenshot/website-running.png" width="95%">
+</p>
+
+The website was successfully restored on the new Windows Server EC2 instance created from the copied AMI in the **Singapore Region**, confirming a successful Cross-Region Disaster Recovery implementation.
 
 ---
 
 # ✨ Key Features
 
-- Windows Server Deployment
-- IIS Website Hosting
-- Custom AMI Creation
-- Cross-Region AMI Migration
-- Disaster Recovery Implementation
-- EC2 Restoration
-- Secure RDP Access
-- Website Verification
-- Cloud Backup Strategy
+- ✅ Windows Server EC2 Deployment
+- ✅ Microsoft IIS Website Hosting
+- ✅ Custom Amazon Machine Image (AMI)
+- ✅ Cross-Region AMI Migration
+- ✅ Disaster Recovery Implementation
+- ✅ Windows Remote Desktop (RDP)
+- ✅ Website Restoration
+- ✅ Cloud Backup Strategy
+- ✅ High Availability Concept
+- ✅ AWS Best Practices
+
+---
+
+# 🎯 Skills Demonstrated
+
+- Amazon EC2
+- Windows Server Administration
+- Microsoft IIS Configuration
+- Amazon Machine Images (AMI)
+- Cross-Region Migration
+- Disaster Recovery Planning
+- AWS Networking
+- Security Groups
+- Remote Desktop Management
+- Git & GitHub Documentation
 
 ---
 
 # 📚 Learning Outcomes
 
-Through this project, I learned how to:
+Through this project, I gained practical experience in:
 
-- Deploy Windows Server on Amazon EC2
-- Configure Microsoft IIS
-- Create and manage Amazon Machine Images (AMI)
-- Perform Cross-Region AMI Migration
-- Launch EC2 instances from custom AMIs
-- Implement Disaster Recovery strategies
-- Secure Windows Server using Security Groups
-- Manage cloud infrastructure using AWS
+- Deploying Windows Server instances on AWS
+- Configuring Microsoft IIS for web hosting
+- Creating and managing custom AMIs
+- Performing Cross-Region AMI migration
+- Launching EC2 instances from copied AMIs
+- Implementing Disaster Recovery strategies
+- Verifying application availability after migration
+- Managing cloud infrastructure using AWS best practices
+
+---
+# 🚀 Future Enhancements
+
+This project can be further enhanced by implementing:
+
+- 🌐 Route 53 DNS Failover
+- ⚖️ Elastic Load Balancer (ELB)
+- 📈 Auto Scaling Group (ASG)
+- 💾 AWS Backup Service
+- 📊 Amazon CloudWatch Monitoring
+- 🔒 SSL Certificate (HTTPS)
+- 🌍 Custom Domain Name
+- ⚙️ Infrastructure as Code (Terraform)
+- 🚀 CI/CD Pipeline using GitHub Actions
+- ☁️ Multi-Region High Availability Architecture
 
 ---
 
-# 🚀 Future Improvements
+# 💡 Best Practices Followed
 
-- Route 53 DNS Failover
-- Elastic Load Balancer (ELB)
-- Auto Scaling Group
-- AWS Backup Integration
-- CloudWatch Monitoring
-- SSL Certificate (HTTPS)
-- Custom Domain Name
-- Infrastructure as Code using Terraform
+- Used a custom Amazon Machine Image (AMI) for backup and recovery.
+- Performed Cross-Region AMI migration for disaster recovery.
+- Secured remote access using Remote Desktop Protocol (RDP).
+- Configured Security Groups to allow only required inbound traffic.
+- Verified website availability after migration.
+- Followed AWS best practices for EC2 deployment and backup.
 
 ---
 
-# 👨‍💻 Repository
+# 📈 Project Highlights
 
-```
-aws-ec2-cross-region-ami-migration
-```
+| Feature | Status |
+|---------|:------:|
+| Windows Server Deployment | ✅ |
+| IIS Website Hosting | ✅ |
+| Custom AMI Creation | ✅ |
+| Cross-Region AMI Copy | ✅ |
+| Disaster Recovery | ✅ |
+| EC2 Restoration | ✅ |
+| Website Verification | ✅ |
+| GitHub Documentation | ✅ |
+
+---
+
+# 🏆 Project Outcome
+
+Successfully demonstrated a complete **AWS Cross-Region Disaster Recovery** workflow by:
+
+- Deploying a Windows Server EC2 instance.
+- Hosting a website using Microsoft IIS.
+- Creating a custom Amazon Machine Image (AMI).
+- Copying the AMI to another AWS Region.
+- Launching a new EC2 instance from the copied AMI.
+- Restoring and verifying the hosted website.
+- Validating a real-world Disaster Recovery scenario.
+
+This project showcases practical experience with **AWS Infrastructure, Windows Server Administration, IIS Web Hosting, and Disaster Recovery**, making it suitable for a Cloud Computing or DevOps portfolio.
 
 ---
 
 # 👩‍💻 Author
 
-**Ajwa Farooq**
+## **Ajwa Farooq**
 
-BS Software Engineering Student
+**BS Software Engineering Student**
 
-National Textile University
+**National Textile University, Pakistan**
 
-**GitHub Profile**
+### 🌐 GitHub
 
 https://github.com/Ajwafarooq
 
 ---
 
-# 📄 License
+# 🤝 Connect
 
-This project is created for **educational and portfolio purposes**.
+If you found this project helpful, feel free to:
+
+- ⭐ Star this repository
+- 🍴 Fork this repository
+- 📢 Share your feedback
 
 ---
 
-# ⭐ Support
+# 📄 License
 
-If you found this project useful, please consider giving this repository a **⭐ Star** on GitHub.
+This project is licensed under the **MIT License**.
 
-Thank you for visiting this project!
+You are welcome to use this project for learning, educational purposes, and personal portfolio development.
+
+---
+
+<p align="center">
+
+### ⭐ Thank You for Visiting This Repository ⭐
+
+**AWS EC2 Cross-Region AMI Migration & Disaster Recovery**
+
+*Built with AWS • Windows Server • Microsoft IIS • GitHub*
+
+</p>
