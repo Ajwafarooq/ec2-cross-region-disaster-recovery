@@ -13,11 +13,19 @@
 
 This project demonstrates a real-world **AWS Disaster Recovery** solution using **Amazon EC2**, **Amazon Machine Images (AMI)**, and **Microsoft IIS**.
 
-A Windows Server EC2 instance hosting an IIS website was deployed in the **Mumbai Region**, converted into a custom AMI, copied to the **Singapore Region**, and launched as a new EC2 instance to successfully restore the website.
+A Windows Server EC2 instance hosting an IIS website was deployed in the **Mumbai Region**, converted into a custom AMI, copied to the **Singapore Region**, and launched as a new EC2 instance — successfully restoring the website in a completely different region with zero data loss.
+
+### 📑 Table of Contents
+- [Architecture Diagram](#-architecture-diagram)
+- [AWS Services Used](#-aws-services-used)
+- [Project Workflow](#-project-workflow)
+- [Implementation & Screenshots](#-implementation--screenshots)
+- [Key Features](#-key-features)
+- [Skills Demonstrated](#-skills-demonstrated)
 
 ---
 
-# 🏗 Architecture Diagram
+## 🏗 Architecture Diagram
 
 <p align="center">
 <img src="Architecture-diagram.png" width="100%">
@@ -25,141 +33,122 @@ A Windows Server EC2 instance hosting an IIS website was deployed in the **Mumba
 
 ---
 
-# ☁ AWS Services Used
+## ☁ AWS Services Used
 
 - Amazon EC2
 - Amazon Machine Image (AMI)
 - Amazon EBS
 - Microsoft IIS
 - Security Groups
-- Remote Desktop (RDP)
+- Remote Desktop Protocol (RDP)
 
 ---
 
-# 🚀 Project Workflow
+## 🚀 Project Workflow
 
 ```text
-Windows Server EC2
+Windows Server EC2 (Mumbai Region)
         │
         ▼
- Host Website using IIS
+Host Website using IIS
         │
         ▼
- Create Custom AMI
+Create Custom AMI
         │
         ▼
- Copy AMI to Singapore Region
+Copy AMI to Singapore Region
         │
         ▼
- Launch New EC2 Instance
+Launch New EC2 Instance (Singapore)
         │
         ▼
- Connect using RDP
+Connect using RDP
         │
         ▼
- Verify Website
+Verify Website
         │
         ▼
- Disaster Recovery Completed
+✅ Disaster Recovery Completed
 ```
 
 ---
 
-# 📸 Project Screenshots
+## 📸 Implementation & Screenshots
 
-## 🖥 Original Windows Server
-
-<p align="center">
-<img src="screenshot/original-instance.png" width="90%">
-</p>
-
----
-
-## 💾 Create Custom AMI
+### 1️⃣ Launch the Original Windows Server (Mumbai)
 
 <p align="center">
-<img src="screenshot/amicopy-successful.png" width="90%">
+<img src="screenshoot/lauchinstance.png" width="90%">
+</p>
+<p align="center">
+<img src="screenshoot/instancecreate.png" width="90%">
 </p>
 
----
-
-## 🌏 Copied AMI in Singapore
+### 2️⃣ Original Instance Running
 
 <p align="center">
-<img src="screenshot/destination-ami.png" width="90%">
+<img src="screenshoot/original-instance.png" width="90%">
 </p>
 
----
-
-## 🚀 Launch New EC2 Instance
+### 3️⃣ Retrieve Windows Password
 
 <p align="center">
-<img src="screenshot/lauchinstance.png" width="90%">
+<img src="screenshoot/password.png" width="90%">
 </p>
 
----
-
-## ⚙ Configure EC2 Instance
+### 4️⃣ Connect via Remote Desktop (RDP)
 
 <p align="center">
-<img src="screenshot/instancecreate.png" width="90%">
+<img src="screenshoot/remote-desktopconnection.png" width="90%">
 </p>
 
----
-
-## 🔑 Retrieve Windows Password
+### 5️⃣ Host & Verify Website on IIS (Localhost)
 
 <p align="center">
-<img src="screenshot/password.png" width="90%">
+<img src="screenshoot/search-localhost.png" width="90%">
+</p>
+<p align="center">
+<img src="screenshoot/website.png" width="90%">
 </p>
 
----
-
-## 🖥 Remote Desktop Connection
+### 6️⃣ Create Custom AMI & Copy to Singapore Region
 
 <p align="center">
-<img src="screenshot/remote-desktopconnection.png" width="90%">
+<img src="screenshoot/amicopy-successful.png" width="90%">
+</p>
+<p align="center">
+<img src="screenshoot/destination-ami.png" width="90%">
 </p>
 
----
-
-## 🌐 Verify Website on Localhost
+### 7️⃣ Launch New EC2 Instance from AMI (Singapore)
 
 <p align="center">
-<img src="screenshot/search-localhost.png" width="90%">
+<img src="screenshoot/success_msg.png" width="90%">
 </p>
 
----
-
-## ✅ Deployment Successful
+### 8️⃣ Website Restored & Running in New Region 🎉
 
 <p align="center">
-<img src="screenshot/success_msg.png" width="90%">
+<img src="screenshoot/website-running.png" width="90%">
 </p>
 
----
-
-## 🎉 Website Running Successfully
-
-<p align="center">
-<img src="screenshot/website-running.png" width="90%">
-</p>
+> ✅ This confirms successful **cross-region disaster recovery** — the website was fully restored in Singapore from a Mumbai-based AMI, with no data loss.
 
 ---
 
-# ✨ Key Features
+## ✨ Key Features
 
-- Windows Server EC2 Deployment
-- IIS Website Hosting
-- Custom AMI Creation
-- Cross-Region AMI Migration
-- Disaster Recovery Implementation
-- Website Restoration
-- Secure RDP Access
+- Windows Server EC2 deployment
+- IIS website hosting
+- Custom AMI creation
+- Cross-region AMI migration (Mumbai → Singapore)
+- Disaster recovery implementation
+- Website restoration & verification
+- Secure RDP access
 
 ---
 
-# 📚 Skills Demonstrated
+## 📚 Skills Demonstrated
 
 - AWS EC2
 - Windows Server
@@ -172,16 +161,15 @@ Windows Server EC2
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Ajwa Farooq**
-
 BS Software Engineering Student
 
-🌐 **GitHub:** https://github.com/Ajwafarooq
+🌐 **GitHub:** [github.com/Ajwafarooq](https://github.com/Ajwafarooq)
 
 ---
 
-# ⭐ Support
+## ⭐ Support
 
 If you found this project useful, please consider giving this repository a **Star ⭐**.
