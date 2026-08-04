@@ -135,7 +135,16 @@ Verify Website
 > ✅ This confirms successful **cross-region disaster recovery** — the website was fully restored in Singapore from a Mumbai-based AMI, with no data loss.
 
 ---
+## ✨ demo video
 
+
+
+https://github.com/user-attachments/assets/6b5a1243-f672-4486-9846-cfea25934b4e
+
+
+
+
+---
 ## ✨ Key Features
 
 - Windows Server EC2 deployment
